@@ -16,7 +16,7 @@ public class Surface {
   public void show() {
     for(int i=0;i<terrain[0].length;i++){
       for(int j=0;j<terrain[0].length;j++) {
-        System.out.println(terrain[i][j])
+        System.out.println(terrain[i][j]);
   }
 }
   }
