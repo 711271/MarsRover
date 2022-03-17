@@ -12,4 +12,5 @@ public void draw() {
   background(220);   //<>//
   surface.show();
   rover.show();
+  rover.move(surface.terrain);
 }
