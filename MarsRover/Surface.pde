@@ -29,33 +29,46 @@ public class Surface {
     float highest = 0;
     for (int i = 0; i < terrain.length; i++) {
       for (int j =0; j < terrain[0].length; j++) {
-        if (terrain[i][j] > 2) {
+        if (terrain[i][j] > highest) {
           highest = terrain[i][j];
         }
       }
     }
     return highest;
   }
-    public float lowestPoint() {
-    float highest = 0;
+  public float lowestPoint() {
+    float lowest = Float.MAX_VALUE;
     for (int i = 0; i < terrain.length; i++) {
       for (int j =0; j < terrain[0].length; j++) {
-        if (terrain[i][j] > 2) {
-          highest = terrain[i][j];
+        if (terrain[i][j] < lowest ) {
+          lowest = terrain[i][j];
         }
       }
     }
-    return highest;
+    return lowest;
   }
-    public float avergeAltitude() {
-    float highest = 0;
+  public float avergeAltitude() {
+    float sum = 0;
+    float avgAlt = 0;
     for (int i = 0; i < terrain.length; i++) {
       for (int j =0; j < terrain[0].length; j++) {
-        if (terrain[i][j] > 2) {
-          highest = terrain[i][j];
+        sum += terrain[i][j];
+     
         }
       }
+    avgAlt = sum/2;
+    return avgAlt;
     }
-    return highest;
+    
+    public float standardDeviation() {
+      float devFromMean = 0;
+      float stanDev = 0;
+     for (int i = 0; i < terrain.length; i++) {
+      for (int j =0; j < terrain[0].length; j++) {
+        devFromMean += (terrain[i][j] - sq(avergeAltitude()));
+      }    
+     }
+     stanDev = sqrt(devFromMean);
+      return stanDev;
+    }
   }
-}
